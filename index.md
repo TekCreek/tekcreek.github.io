@@ -3,7 +3,7 @@
 <table>
    <tr>
       <td>
-         <a href="https://www.udemy.com/java-by-sagar/?couponCode=SGSTC01" target="_blank" rel="noopener">
+         <a href="https://www.udemy.com/java-by-sagar/?couponCode=SIMPLE" target="_blank" rel="noopener">
          <img class="merchandising-course-card--card__image--upq5w" src="https://udemy-images.udemy.com/course/240x135/991254_d0df_4.jpg" alt="Programming in JAVA" />
          </a>
       </td>
@@ -17,7 +17,7 @@
 <table>
    <tr>
       <td>
-         <a href="https://www.udemy.com/java-multi-threading-by-sagar/?couponCode=SGSTC01" target="_blank" rel="noopener">
+         <a href="https://www.udemy.com/java-multi-threading-by-sagar/?couponCode=SIMPLE" target="_blank" rel="noopener">
          <img class="merchandising-course-card--card__image--upq5w" src="https://udemy-images.udemy.com/course/240x135/1446286_e716_5.jpg" alt="Java: Multi-threading Simplified" />
          </a>
       </td>
@@ -45,14 +45,44 @@
 <table>
    <tr>
       <td>
-         <a href="https://www.udemy.com/sql-essentials-for-beginners/?couponCode=SIMPLE" target="_blank" rel="noopener">
-         <img class="merchandising-course-card--card__image--upq5w" src="https://udemy-images.udemy.com/course/240x135/976478_da85_9.jpg" alt="SQL Foundations for Beginners" />
+         <a href="https://www.udemy.com/course/c-programming-tutorial-by-sagar/?referralCode=FC565B03485EAE3F127B" target="_blank" rel="noopener">
+         <img class="merchandising-course-card--card__image--upq5w" src="https://img-a.udemycdn.com/course/240x135/2464724_0c7a_3.jpg" alt="Programming Foundations with C" />
          </a>
       </td>
    </tr>
    <tr>
       <td>
-         <b>SQL Foundations - Special Discount </b>
+         <b>Programming Foundations with C - Special Discount </b>
+      </td>
+   </tr>
+</table>
+
+<table>
+   <tr>
+      <td>
+         <a href="https://www.udemy.com/course/object-oriented-programming-in-java/" target="_blank" rel="noopener">
+         <img class="merchandising-course-card--card__image--upq5w" src="https://img-a.udemycdn.com/course/240x135/2181922_67c1_3.jpg" alt="Object Oriented Programming in JAVA" />
+         </a>
+      </td>
+   </tr>
+   <tr>
+      <td>
+         <b>Object Oriented Programming in JAVA - FREE</b>
+      </td>
+   </tr>
+</table>
+
+<table>
+   <tr>
+      <td>
+         <a href="https://www.udemy.com/sql-essentials-for-beginners/" target="_blank" rel="noopener">
+         <img class="merchandising-course-card--card__image--upq5w" src="https://udemy-images.udemy.com/course/240x135/976478_da85_9.jpg" alt="SQL Foundations" />
+         </a>
+      </td>
+   </tr>
+   <tr>
+      <td>
+         <b>SQL Foundations - FREE </b>
       </td>
    </tr>
 </table>
