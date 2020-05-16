@@ -1,3 +1,5 @@
 theme: jekyll-theme-minimal
 title: Sagar Uppuluri
 description: Software Architect and a passionate trainer
+github:
+  is_project_page: false
