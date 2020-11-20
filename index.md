@@ -83,7 +83,7 @@
    </tr>
    <tr>
       <td>
-         <b>SQL Foundations - FREE </b>
+         <b>SQL Foundations - FREE  </b>
       </td>
    </tr>
 </table>
