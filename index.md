@@ -1,5 +1,4 @@
 <h1> Java Tutorials and Courses  </h1>
-<hr/>
 <h3>Find me on Udemy</h3>
 <table>
    <tr>
