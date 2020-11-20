@@ -5,7 +5,7 @@
    <tr>
       <td>
          <a href="https://www.udemy.com/course/java-by-sagar/?referralCode=A1EC60EA1595D6EC28E2" target="_blank" rel="noopener">
-         <img class="merchandising-course-card--card__image--upq5w" src="https://img-a.udemycdn.com/course/240x135/991254_d0df_6.jpg" alt="Programming in JAVA" />
+         <img src="https://img-a.udemycdn.com/course/240x135/991254_d0df_6.jpg" alt="Programming in JAVA" />
          </a>
       </td>
    </tr>
@@ -19,7 +19,7 @@
    <tr>
       <td>
          <a href="https://www.udemy.com/course/java-multi-threading-by-sagar/?referralCode=ACD9875BACF1E19480EC" target="_blank" rel="noopener">
-         <img class="https://img-a.udemycdn.com/course/240x135/1446286_e716_5.jpg" alt="Java: Multi-threading Simplified" />
+         <img src="https://img-a.udemycdn.com/course/240x135/1446286_e716_5.jpg" alt="Java: Multi-threading Simplified" />
          </a>
       </td>
    </tr>
@@ -47,7 +47,7 @@
    <tr>
       <td>
          <a href="https://www.udemy.com/course/c-programming-tutorial-by-sagar/?referralCode=FC565B03485EAE3F127B" target="_blank" rel="noopener">
-         <img class="merchandising-course-card--card__image--upq5w" src="https://img-a.udemycdn.com/course/240x135/2464724_0c7a_3.jpg" alt="Programming Foundations with C" />
+         <img src="https://img-a.udemycdn.com/course/240x135/2464724_0c7a_3.jpg" alt="Programming Foundations with C" />
          </a>
       </td>
    </tr>
@@ -62,7 +62,7 @@
    <tr>
       <td>
          <a href="https://www.udemy.com/course/object-oriented-programming-in-java/" target="_blank" rel="noopener">
-         <img class="merchandising-course-card--card__image--upq5w" src="https://img-a.udemycdn.com/course/240x135/2181922_67c1_3.jpg" alt="Object Oriented Programming in JAVA" />
+         <img src="https://img-a.udemycdn.com/course/240x135/2181922_67c1_3.jpg" alt="Object Oriented Programming in JAVA" />
          </a>
       </td>
    </tr>
@@ -77,7 +77,7 @@
    <tr>
       <td>
          <a href="https://www.udemy.com/sql-essentials-for-beginners/" target="_blank" rel="noopener">
-         <img class="merchandising-course-card--card__image--upq5w" src="https://img-a.udemycdn.com/course/240x135/976478_da85_9.jpg" alt="SQL Foundations" />
+         <img src="https://img-a.udemycdn.com/course/240x135/976478_da85_9.jpg" alt="SQL Foundations" />
          </a>
       </td>
    </tr>
