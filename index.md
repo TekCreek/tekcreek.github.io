@@ -1,10 +1,10 @@
 <h1> Courses </h1>
 <div style="margin: 10px 50px 10px 10px;"> 
-  <a href="https://www.youtube.com/c/tekcreek"><h2>Youtube </h2></a> 
+  <a href="https://www.youtube.com/c/tekcreek" target="_blank" rel="noopener"><h2>Youtube </h2></a> 
 </div>
 
 <div style="margin: 10px 50px 10px 10px;">
-  <a href="https://www.udemy.com/user/purna-chandra-vidya-sagar-uppuluri/"><h2>Udemy Profile</h2></a> 
+  <a href="https://www.udemy.com/user/purna-chandra-vidya-sagar-uppuluri/" target="_blank" rel="noopener"><h2>Udemy Profile</h2></a> 
 </div>
 
 <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);max-width: 300px; margin: 0px 0px 20px 0px;text-align: left;">
