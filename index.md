@@ -8,11 +8,12 @@
 </div>
 
 <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);max-width: 300px; margin: 0px 0px 20px 0px;text-align: left;">
-    <a href="https://www.udemy.com/course/java-by-sagar/?referralCode=A1EC60EA1595D6EC28E2" target="_blank" rel="noopener">
-         <img src="https://img-a.udemycdn.com/course/240x135/991254_d0df_6.jpg" alt="Programming in JAVA"  width="100%" />
+    <a href="https://www.udemy.com/course/java-tutorial-by-sagar/?referralCode=B2C1AF2A47791ED56171" target="_blank" rel="noopener">
+      <img src="https://img-a.udemycdn.com/course/480x270/3847946_d2aa.jpg" alt="Master The Java Programming Language" width="100%" />
     </a>
-    <div style=" padding: 2px 16px;"><h3>Programming in JAVA</h3></div>
+    <div style=" padding: 2px 16px;"><h3>Master The Java Programming Language</h3></div>
 </div>
+
 
 <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);max-width: 300px; margin: 0px 0px 20px 0px;text-align: left;">
     <a href="https://www.udemy.com/course/java-multi-threading-by-sagar/?referralCode=ACD9875BACF1E19480EC" target="_blank" rel="noopener">
@@ -20,6 +21,7 @@
     </a>
     <div style=" padding: 2px 16px;"><h3>Java: Multi-threading and Concurrency Simplified</h3></div>
 </div>
+
 
 <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);max-width: 300px; margin: 0px 0px 20px 0px;text-align: left;">
     <a href="https://www.udemy.com/course/java-socket-programming-by-sagar/?referralCode=F9B00D2EC332FB322999" target="_blank" rel="noopener">
@@ -33,6 +35,13 @@
       <img src="https://img-a.udemycdn.com/course/240x135/2464724_0c7a_3.jpg" alt="Programming Foundations with C" width="100%"/>
     </a>
     <div style=" padding: 2px 16px;"><h3>Master The C Programming Language</h3></div>
+</div>
+
+<div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);max-width: 300px; margin: 0px 0px 20px 0px;text-align: left;">
+    <a href="https://www.udemy.com/course/java-by-sagar/?referralCode=A1EC60EA1595D6EC28E2" target="_blank" rel="noopener">
+         <img src="https://img-a.udemycdn.com/course/240x135/991254_d0df_6.jpg" alt="Programming in JAVA"  width="100%" />
+    </a>
+    <div style=" padding: 2px 16px;"><h3>Programming Foundations with Java</h3></div>
 </div>
 
 <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);max-width: 300px; margin: 0px 0px 20px 0px;text-align: left;">
