@@ -41,6 +41,7 @@
     
 </div>
 
+<!--
 <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);max-width: 300px; margin: 0px 0px 20px 0px;text-align: left;">
     <a href="https://www.udemy.com/course/java-by-sagar/?referralCode=A1EC60EA1595D6EC28E2" target="_blank" rel="noopener">
          <img src="https://img-a.udemycdn.com/course/240x135/991254_d0df_6.jpg" alt="Java Tutorial with Programming Basics"  width="100%" />
@@ -48,6 +49,7 @@
     </a>
    
 </div>
+-->
 
 <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);max-width: 300px; margin: 0px 0px 20px 0px;text-align: left;">
     <a href="https://www.udemy.com/course/object-oriented-programming-in-java/" target="_blank" rel="noopener">
