@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TekCreek — Sagar Uppuluri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #faf8f4;
+      --bg2:      #f3efe8;
+      --bg3:      #ece7dd;
+      --border:   rgba(60,40,10,0.1);
+      --accent:   #d4500a;
+      --accent2:  #1a6bb5;
+      --text:     #1c1810;
+      --muted:    #7a6e5f;
+      --card-bg:  #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Lora', serif;
+      font-size: 17px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── SUBTLE PAPER TEXTURE ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 180px;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.6;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    h1, h2, h3, h4, nav, .tag, .mono {
+      font-family: 'Syne', sans-serif;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem;
+      background: rgba(250,248,244,0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--text); }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); font-size: 0.85rem; letter-spacing: 0.08em;
+      text-transform: uppercase; text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      background: var(--accent); color: #fff;
+      padding: .45rem 1.2rem; border-radius: 4px;
+      font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; text-decoration: none;
+      transition: opacity .2s;
+    }
+    .nav-cta:hover { opacity: .85; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 7rem 3rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* background grid */
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 100%);
+      pointer-events: none;
+    }
+
+    /* soft orbs */
+    .orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(90px); pointer-events: none;
+    }
+    .orb1 {
+      width: 520px; height: 520px;
+      background: rgba(212,80,10,0.10);
+      top: -80px; right: -100px;
+      animation: drift1 14s ease-in-out infinite alternate;
+    }
+    .orb2 {
+      width: 380px; height: 380px;
+      background: rgba(26,107,181,0.08);
+      bottom: 50px; left: -80px;
+      animation: drift2 18s ease-in-out infinite alternate;
+    }
+    @keyframes drift1 { to { transform: translate(-40px, 60px); } }
+    @keyframes drift2 { to { transform: translate(50px, -40px); } }
+
+    .hero-inner {
+      position: relative; z-index: 1;
+      max-width: 1200px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(212,80,10,0.08); border: 1px solid rgba(212,80,10,0.22);
+      color: var(--accent); padding: .3rem .8rem; border-radius: 20px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero-tag::before { content: '◆'; font-size: .6rem; }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 800; line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.4rem;
+      color: var(--text);
+    }
+
+    .hero h1 .line2 {
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--accent);
+    }
+
+    .hero-desc {
+      color: var(--muted); font-size: 1.05rem; line-height: 1.8;
+      margin-bottom: 2.2rem; max-width: 480px;
+      font-family: 'Lora', serif;
+      font-style: italic;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--accent); color: #fff;
+      padding: .85rem 2rem; border-radius: 6px;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.88rem; font-weight: 700; letter-spacing: 0.05em;
+      text-decoration: none; text-transform: uppercase;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 18px rgba(212,80,10,0.22);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(212,80,10,0.32); }
+
+    .btn-secondary {
+      background: transparent; color: var(--text);
+      padding: .85rem 2rem; border-radius: 6px;
+      border: 1px solid var(--border);
+      font-family: 'Syne', sans-serif;
+      font-size: 0.88rem; font-weight: 600; letter-spacing: 0.05em;
+      text-decoration: none; text-transform: uppercase;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-secondary:hover { border-color: var(--accent2); color: var(--accent2); }
+
+    /* hero right — stats */
+    .hero-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+    }
+    .stat-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.6rem;
+      position: relative; overflow: hidden;
+      box-shadow: 0 2px 12px rgba(60,40,10,0.06);
+      animation: fadeUp .6s ease both;
+    }
+    .stat-card:nth-child(2) { animation-delay: .1s; }
+    .stat-card:nth-child(3) { animation-delay: .2s; }
+    .stat-card:nth-child(4) { animation-delay: .3s; }
+
+    .stat-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+    }
+
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.4rem; font-weight: 800; color: var(--accent);
+      line-height: 1; margin-bottom: .3rem;
+    }
+    .stat-label { color: var(--muted); font-size: 0.8rem; font-family: 'DM Mono', monospace; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 6rem 3rem; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: .6rem;
+    }
+    .section-label::before { content: '// '; opacity: .5; }
+
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 800; letter-spacing: -0.03em;
+      margin-bottom: 1rem; line-height: 1.15;
+      color: var(--text);
+    }
+    .section-sub {
+      color: var(--muted); max-width: 540px;
+      font-style: italic; margin-bottom: 3.5rem;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border) 30%, var(--border) 70%, transparent);
+      margin: 0 3rem;
+    }
+
+    /* ── ABOUT ── */
+    .about { background: var(--bg2); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start;
+    }
+    .about-avatar-wrap {
+      position: relative;
+    }
+    .about-avatar-box {
+      width: 100%; aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--bg3) 0%, #e2d9cc 100%);
+      border: 1px solid var(--border); border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 6rem; position: relative; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(60,40,10,0.08);
+    }
+    .about-avatar-box::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(212,80,10,.06) 0%, rgba(26,107,181,.04) 100%);
+    }
+    .about-initials {
+      font-family: 'Syne', sans-serif;
+      font-size: 4.5rem; font-weight: 800;
+      color: var(--accent); letter-spacing: -0.05em;
+      position: relative; z-index: 1;
+    }
+    .about-accent-line {
+      position: absolute; bottom: -12px; left: 0; right: 0;
+      height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 2px;
+    }
+
+    .about-links { display: flex; gap: .75rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .about-link {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .5rem 1rem; border-radius: 6px;
+      border: 1px solid var(--border); background: var(--card-bg);
+      color: var(--muted); font-family: 'DM Mono', monospace; font-size: 0.75rem;
+      text-decoration: none; transition: border-color .2s, color .2s;
+    }
+    .about-link:hover { border-color: var(--accent); color: var(--accent); }
+    .about-link svg { width: 14px; height: 14px; fill: currentColor; }
+
+    .about-content p { color: var(--muted); margin-bottom: 1rem; }
+    .about-badges { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: 2rem; }
+    .badge {
+      background: var(--bg3); border: 1px solid var(--border);
+      padding: .35rem .85rem; border-radius: 20px;
+      font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--muted);
+    }
+
+    /* ── COURSES ── */
+    .courses-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem;
+    }
+
+    .course-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+      text-decoration: none; color: inherit;
+      display: flex; flex-direction: column;
+      box-shadow: 0 2px 10px rgba(60,40,10,0.06);
+    }
+    .course-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(60,40,10,0.13);
+      border-color: rgba(212,80,10,0.25);
+    }
+
+    .course-thumb {
+      aspect-ratio: 16/9; overflow: hidden;
+      background: var(--bg3);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .course-thumb img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .4s;
+    }
+    .course-card:hover .course-thumb img { transform: scale(1.05); }
+
+    .course-thumb-placeholder {
+      font-size: 4rem;
+    }
+
+    .course-body { padding: 1.6rem; flex: 1; display: flex; flex-direction: column; }
+
+    .course-tag {
+      display: inline-block;
+      background: rgba(212,80,10,0.08); border: 1px solid rgba(212,80,10,0.2);
+      color: var(--accent); padding: .2rem .65rem; border-radius: 4px;
+      font-family: 'DM Mono', monospace; font-size: 0.65rem;
+      letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: .8rem;
+    }
+
+    .course-title {
+      font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700;
+      line-height: 1.3; margin-bottom: .6rem; color: var(--text);
+    }
+
+    .course-desc { color: var(--muted); font-size: 0.88rem; flex: 1; margin-bottom: 1.2rem; font-style: italic; }
+
+    .course-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid var(--border); padding-top: 1rem;
+    }
+
+    .course-platform {
+      font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted);
+    }
+
+    .course-cta {
+      background: var(--accent); color: #fff;
+      padding: .4rem 1rem; border-radius: 4px;
+      font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      transition: opacity .2s;
+    }
+    .course-card:hover .course-cta { opacity: .85; }
+
+    /* ── CHANNELS ── */
+    .channels { background: var(--bg2); }
+    .channels-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+    .channel-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 14px; padding: 2.2rem;
+      display: flex; gap: 1.5rem; align-items: flex-start;
+      text-decoration: none; color: inherit;
+      transition: border-color .3s, transform .3s, box-shadow .3s;
+      box-shadow: 0 2px 10px rgba(60,40,10,0.06);
+    }
+    .channel-card:hover { border-color: var(--accent2); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(60,40,10,0.10); }
+
+    .channel-icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; flex-shrink: 0;
+    }
+    .channel-icon.yt { background: rgba(255,80,80,.10); }
+    .channel-icon.udemy { background: rgba(163,113,247,.10); }
+
+    .channel-name {
+      font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: .4rem;
+      color: var(--text);
+    }
+    .channel-desc { color: var(--muted); font-size: 0.88rem; font-style: italic; }
+
+    .channel-arrow {
+      margin-left: auto; color: var(--muted); font-size: 1.2rem;
+      transition: transform .2s, color .2s;
+    }
+    .channel-card:hover .channel-arrow { transform: translateX(4px); color: var(--accent2); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 3rem; border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      background: var(--bg2);
+    }
+    .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--accent); }
+    .footer-copy { color: var(--muted); font-family: 'DM Mono', monospace; font-size: 0.75rem; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: var(--muted); font-family: 'DM Mono', monospace; font-size: 0.75rem; text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { padding: 6rem 1.5rem 3rem; }
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-avatar-box { max-width: 200px; }
+      .channels-grid { grid-template-columns: 1fr; }
+      section { padding: 4rem 1.5rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.4rem; }
+      .courses-grid { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ── SCROLL ANIMATION ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Tek<span>Creek</span></a>
+  <ul class="nav-links">
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#channels">Channels</a></li>
+  </ul>
+  <a href="#courses" class="nav-cta">Start Learning</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Software Architect &amp; Trainer</div>
+      <h1>
+        Master Software<br>
+        <span class="line2">Engineering</span><br>
+        From Sagar Uppuluri
+      </h1>
+      <p class="hero-desc">
+        Deep-dive courses on Java, C, SQL, multi-threading, and socket programming — taught by Sagar Uppuluri, a working software architect.
+      </p>
+      <div class="hero-actions">
+        <a href="#courses" class="btn-primary">Browse Courses</a>
+        <a href="https://www.youtube.com/c/tekcreek" target="_blank" class="btn-secondary">Watch Free on YouTube</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Courses Published</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">Java</div>
+        <div class="stat-label">Core Expertise</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Platforms</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Lifetime Access</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-avatar-wrap reveal">
+        <div class="about-avatar-box">
+          <span class="about-initials">SU</span>
+        </div>
+        <div class="about-accent-line"></div>
+        <div class="about-links" style="margin-top:1.8rem;">
+          <a href="https://github.com/TekCreek" target="_blank" class="about-link">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.61.07-.61 1 .07 1.52 1.02 1.52 1.02.89 1.52 2.33 1.08 2.9.83.09-.64.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.02-2.68-.1-.25-.44-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85.004 1.71.115 2.51.337 1.91-1.29 2.75-1.02 2.75-1.02.54 1.38.2 2.4.1 2.65.63.7 1.02 1.59 1.02 2.68 0 3.84-2.34 4.69-4.57 4.93.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg>
+            GitHub
+          </a>
+          <a href="https://www.udemy.com/user/purna-chandra-vidya-sagar-uppuluri/" target="_blank" class="about-link">
+            <svg viewBox="0 0 24 24"><path d="M12 0L5.81 3.573v3.574l6.189-3.573 6.191 3.573V3.573zM5.81 10.148v8.144c0 1.85.589 3.243 1.741 4.234S10.177 24 12 24c1.822 0 3.316-.49 4.45-1.474 1.12-.98 1.69-2.372 1.69-4.234v-8.144l-1.875 1.083v7.103c0 1.214-.347 2.12-1.046 2.72-.699.6-1.633.9-2.219.9-.609 0-1.54-.3-2.24-.9-.699-.6-1.046-1.506-1.046-2.72v-7.103z"/></svg>
+            Udemy
+          </a>
+          <a href="https://www.youtube.com/c/tekcreek" target="_blank" class="about-link">
+            <svg viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+            YouTube
+          </a>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <div class="section-label">About the Instructor</div>
+        <h2 class="section-title">Sagar Uppuluri</h2>
+        <p>I'm a Software Architect with a deep passion for education. My goal is to make complex programming concepts approachable and practical — the kind of knowledge that sticks and translates directly into real projects.</p>
+        <p>From low-level C programming to Java concurrency and distributed socket systems, I design every course to build genuine understanding, not just surface familiarity.</p>
+        <p>Whether you're a complete beginner or leveling up your professional skills, there's a course here built for you.</p>
+        <div class="about-badges">
+          <span class="badge">Java</span>
+          <span class="badge">C Programming</span>
+          <span class="badge">Multi-threading</span>
+          <span class="badge">Socket Programming</span>
+          <span class="badge">SQL</span>
+          <span class="badge">Software Architecture</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- COURSES -->
+<section id="courses">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Curriculum</div>
+      <h2 class="section-title">Online Courses</h2>
+      <p class="section-sub">Structured, in-depth courses available on Udemy with lifetime access and all future updates.</p>
+    </div>
+
+    <div class="courses-grid">
+
+      <a href="https://www.udemy.com/course/java-tutorial-by-sagar/?referralCode=B2C1AF2A47791ED56171" target="_blank" class="course-card reveal">
+        <div class="course-thumb">
+          <img src="https://www.tekcreek.com/images/java.jpeg" alt="Master The Java Programming Language" onerror="this.style.display='none';this.parentNode.querySelector('.course-thumb-placeholder').style.display='flex';">
+          <div class="course-thumb-placeholder" style="display:none;">☕</div>
+        </div>
+        <div class="course-body">
+          <span class="course-tag">Java</span>
+          <div class="course-title">Master The Java Programming Language</div>
+          <div class="course-desc">A complete foundation course covering core Java concepts — from OOP to collections, streams, and modern Java features.</div>
+          <div class="course-footer">
+            <span class="course-platform">Udemy</span>
+            <span class="course-cta">Enroll Now →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://www.udemy.com/course/java-multi-threading-by-sagar/?referralCode=ACD9875BACF1E19480EC" target="_blank" class="course-card reveal">
+        <div class="course-thumb">
+          <img src="https://www.tekcreek.com/images/multithreading.jpeg" alt="Java Multi-threading and Concurrency Simplified" onerror="this.style.display='none';this.parentNode.querySelector('.course-thumb-placeholder').style.display='flex';">
+          <div class="course-thumb-placeholder" style="display:none;">⚡</div>
+        </div>
+        <div class="course-body">
+          <span class="course-tag">Java · Concurrency</span>
+          <div class="course-title">Java: Multi-threading and Concurrency Simplified</div>
+          <div class="course-desc">Demystify threads, locks, synchronization, executors, and the Java Memory Model — with real-world examples throughout.</div>
+          <div class="course-footer">
+            <span class="course-platform">Udemy</span>
+            <span class="course-cta">Enroll Now →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://www.udemy.com/course/java-socket-programming-by-sagar/?referralCode=F9B00D2EC332FB322999" target="_blank" class="course-card reveal">
+        <div class="course-thumb">
+          <img src="https://www.tekcreek.com/images/socketprogramming.jpeg" alt="Java: Socket Programming Simplified" onerror="this.style.display='none';this.parentNode.querySelector('.course-thumb-placeholder').style.display='flex';">
+          <div class="course-thumb-placeholder" style="display:none;">🌐</div>
+        </div>
+        <div class="course-body">
+          <span class="course-tag">Java · Networking</span>
+          <div class="course-title">Java: Socket Programming Simplified</div>
+          <div class="course-desc">Learn TCP/UDP sockets, client-server architecture, and build networked Java applications from the ground up.</div>
+          <div class="course-footer">
+            <span class="course-platform">Udemy</span>
+            <span class="course-cta">Enroll Now →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://www.udemy.com/course/c-programming-tutorial-by-sagar/?referralCode=FC565B03485EAE3F127B" target="_blank" class="course-card reveal">
+        <div class="course-thumb">
+          <img src="https://www.tekcreek.com/images/cprogramming.jpeg" alt="Master The C Programming Language" onerror="this.style.display='none';this.parentNode.querySelector('.course-thumb-placeholder').style.display='flex';">
+          <div class="course-thumb-placeholder" style="display:none;">⚙️</div>
+        </div>
+        <div class="course-body">
+          <span class="course-tag">C Programming</span>
+          <div class="course-title">Master The C Programming Language</div>
+          <div class="course-desc">Go deep on pointers, memory management, data structures, and systems thinking with hands-on C programming exercises.</div>
+          <div class="course-footer">
+            <span class="course-platform">Udemy</span>
+            <span class="course-cta">Enroll Now →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://www.udemy.com/sql-essentials-for-beginners/" target="_blank" class="course-card reveal">
+        <div class="course-thumb">
+          <img src="https://www.tekcreek.com/images/sql.jpeg" alt="SQL Foundations" onerror="this.style.display='none';this.parentNode.querySelector('.course-thumb-placeholder').style.display='flex';">
+          <div class="course-thumb-placeholder" style="display:none;">🗄️</div>
+        </div>
+        <div class="course-body">
+          <span class="course-tag">SQL · Databases</span>
+          <div class="course-title">SQL Foundations</div>
+          <div class="course-desc">Learn the essential SQL skills every developer needs — queries, joins, aggregations, subqueries, and schema design.</div>
+          <div class="course-footer">
+            <span class="course-platform">Udemy</span>
+            <span class="course-cta">Enroll Now →</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CHANNELS -->
+<section class="channels" id="channels">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Platforms</div>
+      <h2 class="section-title">Learn Anywhere</h2>
+      <p class="section-sub">Find me on YouTube for free content and Udemy for complete, structured courses.</p>
+    </div>
+    <div class="channels-grid reveal">
+      <a href="https://www.youtube.com/c/tekcreek" target="_blank" class="channel-card">
+        <div class="channel-icon yt">▶</div>
+        <div>
+          <div class="channel-name">YouTube — TekCreek</div>
+          <div class="channel-desc">Free tutorials, deep dives, and programming fundamentals. Subscribe to get notified of new content.</div>
+        </div>
+        <div class="channel-arrow">→</div>
+      </a>
+      <a href="https://www.udemy.com/user/purna-chandra-vidya-sagar-uppuluri/" target="_blank" class="channel-card">
+        <div class="channel-icon udemy">U</div>
+        <div>
+          <div class="channel-name">Udemy Profile</div>
+          <div class="channel-desc">Full course catalogue with certificates, Q&amp;A support, lifetime access, and structured learning paths.</div>
+        </div>
+        <div class="channel-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">TekCreek</div>
+  <div class="footer-copy">© 2025 Sagar Uppuluri — All rights reserved</div>
+  <div class="footer-links">
+    <a href="https://github.com/TekCreek" target="_blank">GitHub</a>
+    <a href="https://www.youtube.com/c/tekcreek" target="_blank">YouTube</a>
+    <a href="https://www.udemy.com/user/purna-chandra-vidya-sagar-uppuluri/" target="_blank">Udemy</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
