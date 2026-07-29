@@ -443,6 +443,17 @@
       font-size: 4rem;
     }
 
+    .course-badge-free {
+      position: absolute; top: .75rem; left: .75rem; z-index: 2;
+      display: inline-flex; align-items: center; gap: .35rem;
+      background: #1f8a4c; color: #fff;
+      padding: .3rem .75rem; border-radius: 20px;
+      font-family: 'DM Mono', monospace; font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+    }
+    .course-badge-free::before { content: '✓'; font-size: 0.7rem; }
+
     .course-body { padding: 1.6rem; flex: 1; display: flex; flex-direction: column; }
 
     .course-tag {
@@ -722,6 +733,7 @@
 
       <a href="https://www.udemy.com/course/java-socket-programming-by-sagar/?referralCode=F9B00D2EC332FB322999" target="_blank" class="course-card reveal">
         <div class="course-thumb">
+          <span class="course-badge-free">Free</span>
           <img src="images/socketprogramming.jpeg" alt="Java: Socket Programming Simplified" width="480" height="270" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentNode.querySelector('.course-thumb-placeholder').style.display='flex';">
           <div class="course-thumb-placeholder" style="display:none;">🌐</div>
         </div>
@@ -731,7 +743,7 @@
           <div class="course-desc">Learn TCP/UDP sockets, client-server architecture, and build networked Java applications from the ground up.</div>
           <div class="course-footer">
             <span class="course-platform">Udemy</span>
-            <span class="course-cta">Enroll Now →</span>
+            <span class="course-cta">Enroll Free →</span>
           </div>
         </div>
       </a>
@@ -754,6 +766,7 @@
 
       <a href="https://www.udemy.com/sql-essentials-for-beginners/" target="_blank" class="course-card reveal">
         <div class="course-thumb">
+          <span class="course-badge-free">Free</span>
           <img src="images/sql.jpeg" alt="SQL Foundations" width="480" height="270" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentNode.querySelector('.course-thumb-placeholder').style.display='flex';">
           <div class="course-thumb-placeholder" style="display:none;">🗄️</div>
         </div>
@@ -763,7 +776,7 @@
           <div class="course-desc">Learn the essential SQL skills every developer needs — queries, joins, aggregations, subqueries, and schema design.</div>
           <div class="course-footer">
             <span class="course-platform">Udemy</span>
-            <span class="course-cta">Enroll Now →</span>
+            <span class="course-cta">Enroll Free →</span>
           </div>
         </div>
       </a>
